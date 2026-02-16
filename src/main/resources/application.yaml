@@ -3,9 +3,9 @@ spring:
     name: gestion-produit-api
 
   datasource:
-    url: jdbc:mysql://localhost:3306/gestion_produit_crud?useSSL=false&serverTimezone=UTC
-    username: root
-    password: 
+    url: jdbc:mysql://mysqldb:3306/mysqldb?useSSL=false&serverTimezone=UTC
+    username: user
+    password: pass 
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
