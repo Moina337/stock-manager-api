@@ -43,6 +43,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
         // Si on a un email et que l'utilisateur n'est pas encore identifié par Spring
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+        	
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
 
             if (jwtUtils.validateToken(jwt, userDetails.getUsername())) {

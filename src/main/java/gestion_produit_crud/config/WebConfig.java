@@ -8,15 +8,10 @@ import java.nio.file.Paths;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // On récupère le chemin absolu du dossier upload
-        String reportPath = Paths.get("uploads/produits").toAbsolutePath().toUri().toString();
-        
-        // On dit à Spring : "Toutes les requêtes commençant par /upload/produits/ 
-        // doivent chercher les fichiers dans le dossier physique"
-        registry.addResourceHandler("/upload/produits/**")
-                .addResourceLocations(reportPath);
-    }
-}
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		// Chemin absolu dans le conteneur Docker
+		registry.addResourceHandler("/upload/produits/**").addResourceLocations("file:/app/uploads/produits/");
 
+	}
+}
